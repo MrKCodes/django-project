@@ -19,5 +19,9 @@ from imagestore import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     path('imagestore/', views.welcome),
+    path('dashboard/', views.dashboard),
+    path('tracker/', views.tracker),
+    path('output/', views.output),
 ]
