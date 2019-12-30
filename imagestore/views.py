@@ -14,6 +14,12 @@ def tracker(request):
     return render(request, 'tracker.html', {'form':track})
 
 def output(request):
-    output_data = TrackerForm(request)
-    out = output_data.save(commit=True)
-    return render(request,'output.html', {'details':out})
+    if request.method == 'POST':
+        form = TrackerForm(request.POST)
+        form.save()
+        return render(request, 'output.html', {'details':form})
+        #return HttpResponse('output.html', )
+
+    #output_data = TrackerForm(request)
+    #out = output_data.save(commit=True)
+    #return render(request,'output.html', {'details':out})
